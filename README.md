@@ -24,23 +24,30 @@ app.configure(function () {
 
 Please not that order of middlewares is important! `rwps.init();` should go right before app.router middleware.
 
-### 2. config/passport.yml
+### 2. config/passport.json
 
-```yaml
-development:
-  baseURL: 'http://localhost:3000/'
-  google: yes
-  github:
-    clientID: "a8578b8dc47834908338"
-    secret: "d8107d7cd75fc8ee1f12cf1f38b3aa065c3ec2ac"
-  linkedin:
-    apiKey: "3s708f1uys4x"
-    secret: "p3iBqlybJ5WNTINv"
-production:
-  baseURL: 'http://node-js.ru/'
-  github:
-    clientID: "...."
-    secret: "...."
+```json
+{
+  "development": {
+    "google": true, 
+    "baseURL": "http://localhost:3000/", 
+    "linkedin": {
+      "secret": "p3iBqlybJ5WNTINv", 
+      "apiKey": "3s708f1uys4x"
+    }, 
+    "github": {
+      "secret": "d8107d7cd75fc8ee1f12cf1f38b3aa065c3ec2ac", 
+      "clientID": "a8578b8dc47834908338"
+    }
+  }, 
+  "production": {
+    "github": {
+      "secret": "....", 
+      "clientID": "...."
+    }, 
+    "baseURL": "http://node-js.ru/"
+  }
+}
 ```
 
 ## Use
